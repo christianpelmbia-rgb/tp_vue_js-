@@ -1,6 +1,7 @@
 # Biblio+ — Portail Web de la Bibliothèque Municipale
 
-Projet d'application web moderne réalisé dans le cadre de la certification **RNCP 39608 BC01 (Vue.js)**.
+Projet d'application web moderne réalisé dans le cadre de la certification **RNCP 39608 BC01 (Vue.js)**.  
+Dépôt GitHub : **[https://github.com/christianpelmbia-rgb/tp_vue_js-](https://github.com/christianpelmbia-rgb/tp_vue_js-)**
 
 ## Séances couvertes
 
