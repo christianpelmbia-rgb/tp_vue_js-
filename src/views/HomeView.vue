@@ -1,10 +1,11 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
+import { useBooks } from '@/composables/useBooks'
 import SearchBar from '@/components/SearchBar.vue'
 import BookList from '@/components/BookList.vue'
 import BaseButton from '@/components/BaseButton.vue'
 
-const books = ref([])
+const { books, loading, error, load } = useBooks()
 const query = ref('')
 const favoriteIds = ref([])
 
@@ -26,10 +27,7 @@ function toggleFavorite(id) {
   }
 }
 
-onMounted(async () => {
-  const res = await fetch(import.meta.env.BASE_URL + 'data/books.json')
-  books.value = await res.json()
-})
+onMounted(load)
 </script>
 
 <template>
@@ -49,9 +47,26 @@ onMounted(async () => {
     <section aria-labelledby="coeur" class="section-featured">
       <div class="section-featured__header">
         <h2 id="coeur">Coups de cœur</h2>
-        <span class="section-featured__count">{{ featured.length }} livres affichés</span>
+        <span v-if="!loading && !error" class="section-featured__count">
+          {{ featured.length }} livres affichés
+        </span>
       </div>
+
+      <div v-if="loading" class="status-box" role="status">
+        <p>Chargement des coups de cœur…</p>
+      </div>
+
+      <div v-else-if="error" class="status-box status-box--error" role="alert">
+        <p>{{ error }}</p>
+        <BaseButton variant="primary" @click="load">Réessayer</BaseButton>
+      </div>
+
+      <div v-else-if="featured.length === 0" class="status-box">
+        <p>Aucun livre ne correspond à votre recherche.</p>
+      </div>
+
       <BookList
+        v-else
         :books="featured"
         :favorites="favoriteIds"
         @toggle-favorite="toggleFavorite"
@@ -119,5 +134,18 @@ onMounted(async () => {
 .section-featured__count {
   color: #64748b;
   font-size: 0.875rem;
+}
+
+.status-box {
+  text-align: center;
+  padding: var(--space-6);
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  color: #64748b;
+}
+
+.status-box--error {
+  color: var(--color-danger);
+  border: 1px solid rgba(179, 38, 30, 0.2);
 }
 </style>
