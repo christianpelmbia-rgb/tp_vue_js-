@@ -1,14 +1,13 @@
 <script setup>
 import AppHeader from '@/components/AppHeader.vue'
 import AppFooter from '@/components/AppFooter.vue'
-import HomeView from '@/views/HomeView.vue'
 </script>
 
 <template>
   <a href="#contenu" class="skip-link">Aller au contenu principal</a>
   <AppHeader />
   <main id="contenu" tabindex="-1">
-    <HomeView />
+    <RouterView />
   </main>
   <AppFooter />
 </template>

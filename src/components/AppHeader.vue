@@ -36,8 +36,16 @@
   margin: 0;
   padding: 0;
 }
+.app-header__nav a {
+  padding-bottom: 2px;
+  transition: border-color 0.2s;
+}
 .app-header__nav a:hover,
 .app-header__nav a:focus-visible {
   text-decoration: underline;
+}
+.app-header__nav a.router-link-active {
+  font-weight: 700;
+  border-bottom: 2px solid currentColor;
 }
 </style>
