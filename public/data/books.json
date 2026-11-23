@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "title": "Le Petit Prince",
+    "author": "Antoine de Saint-Exupéry",
+    "category": "Jeunesse",
+    "year": 1943,
+    "available": true,
+    "cover": "/covers/petit-prince.svg",
+    "summary": "Un aviateur échoué dans le désert rencontre un jeune prince venu d'un astéroïde lointain."
+  },
+  {
+    "id": 2,
+    "title": "Germinal",
+    "author": "Émile Zola",
+    "category": "Roman",
+    "year": 1885,
+    "available": false,
+    "cover": "/covers/germinal.svg",
+    "summary": "La lutte des mineurs de Montsou pour de meilleures conditions de vie et de travail dans le Nord."
+  },
+  {
+    "id": 3,
+    "title": "1984",
+    "author": "George Orwell",
+    "category": "Roman",
+    "year": 1949,
+    "available": true,
+    "cover": "/covers/1984.svg",
+    "summary": "Une dystopie où Winston Smith tente de résister à la surveillance omnipotente de Big Brother."
+  },
+  {
+    "id": 4,
+    "title": "Sapiens : Une brève histoire de l'humanité",
+    "author": "Yuval Noah Harari",
+    "category": "Documentaire",
+    "year": 2011,
+    "available": true,
+    "cover": "/covers/sapiens.svg",
+    "summary": "Une exploration passionnante de l'évolution de l'Homo sapiens, des chasseurs-cueilleurs à l'ère moderne."
+  },
+  {
+    "id": 5,
+    "title": "Harry Potter à l'école des sorciers",
+    "author": "J.K. Rowling",
+    "category": "Jeunesse",
+    "year": 1997,
+    "available": false,
+    "cover": "/covers/harry-potter.svg",
+    "summary": "Un jeune orphelin découvre le jour de ses 11 ans qu'il est un sorcier et intègre Poudlard."
+  },
+  {
+    "id": 6,
+    "title": "L'Étranger",
+    "author": "Albert Camus",
+    "category": "Roman",
+    "year": 1942,
+    "available": true,
+    "cover": "/covers/letranger.svg",
+    "summary": "Meursault traverse l'existence avec une indifférence distante jusqu'à un événement fatal sur une plage."
+  },
+  {
+    "id": 7,
+    "title": "Le Monde sans fin",
+    "author": "Jean-Marc Jancovici & Christophe Blain",
+    "category": "Documentaire",
+    "year": 2021,
+    "available": true,
+    "cover": "/covers/monde-sans-fin.svg",
+    "summary": "Une bande dessinée pédagogique et documentée expliquant les enjeux énergétiques et climatiques."
+  },
+  {
+    "id": 8,
+    "title": "Les Misérables",
+    "author": "Victor Hugo",
+    "category": "Roman",
+    "year": 1862,
+    "available": false,
+    "cover": "/covers/les-miserables.svg",
+    "summary": "La rédemption de Jean Valjean dans la France tourmentée du XIXe siècle, traqué par Javert."
+  },
+  {
+    "id": 9,
+    "title": "L'Île au trésor",
+    "author": "Robert Louis Stevenson",
+    "category": "Jeunesse",
+    "year": 1883,
+    "available": true,
+    "cover": "/covers/ile-tresor.svg",
+    "summary": "Le jeune Jim Hawkins s'embarque dans une expédition périlleuse pour trouver le trésor du capitaine Flint."
+  },
+  {
+    "id": 10,
+    "title": "Une histoire du monde en 100 objets",
+    "author": "Neil MacGregor",
+    "category": "Documentaire",
+    "year": 2010,
+    "available": true,
+    "cover": "/covers/100-objets.svg",
+    "summary": "L'histoire de l'humanité racontée à travers 100 chefs-d'œuvre et artefacts conservés au British Museum."
+  },
+  {
+    "id": 11,
+    "title": "Le Journal d'Anne Frank",
+    "author": "Anne Frank",
+    "category": "Documentaire",
+    "year": 1947,
+    "available": false,
+    "cover": "/covers/anne-frank.svg",
+    "summary": "Le témoignage poignant d'une jeune fille cachée avec sa famille à Amsterdam pendant l'occupation nazie."
+  },
+  {
+    "id": 12,
+    "title": "Matilda",
+    "author": "Roald Dahl",
+    "category": "Jeunesse",
+    "year": 1988,
+    "available": true,
+    "cover": "/covers/matilda.svg",
+    "summary": "Une petite fille extraordinairement douée affronte des parents négligents et la redoutable Mlle Legourdin."
+  }
+]
