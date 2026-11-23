@@ -1,10 +1,11 @@
-<script setup>
 import { ref, computed, watch, onMounted } from 'vue'
 import { useBooks } from '@/composables/useBooks'
+import { useFavoritesStore } from '@/stores/favorites'
 import BookList from '@/components/BookList.vue'
 import BaseButton from '@/components/BaseButton.vue'
 
 const { books, loading, error, load } = useBooks()
+const favorites = useFavoritesStore()
 onMounted(load)
 
 const query = ref('')
@@ -12,17 +13,6 @@ const category = ref('')
 const sort = ref('title')
 const page = ref(1)
 const PER_PAGE = 8
-
-const favoriteIds = ref([])
-
-function toggleFavorite(id) {
-  const index = favoriteIds.value.indexOf(id)
-  if (index === -1) {
-    favoriteIds.value.push(id)
-  } else {
-    favoriteIds.value.splice(index, 1)
-  }
-}
 
 const categories = computed(() => [...new Set(books.value.map(b => b.category))])
 
@@ -119,8 +109,8 @@ watch([query, category, sort], () => {
     <div v-else>
       <BookList
         :books="visible"
-        :favorites="favoriteIds"
-        @toggle-favorite="toggleFavorite"
+        :favorites="favorites.ids"
+        @toggle-favorite="favorites.toggle"
       />
 
       <!-- Navigation de pagination -->

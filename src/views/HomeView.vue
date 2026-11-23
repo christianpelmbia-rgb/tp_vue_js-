@@ -1,13 +1,14 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import { useBooks } from '@/composables/useBooks'
+import { useFavoritesStore } from '@/stores/favorites'
 import SearchBar from '@/components/SearchBar.vue'
 import BookList from '@/components/BookList.vue'
 import BaseButton from '@/components/BaseButton.vue'
 
 const { books, loading, error, load } = useBooks()
+const favorites = useFavoritesStore()
 const query = ref('')
-const favoriteIds = ref([])
 
 const featured = computed(() =>
   books.value
@@ -17,15 +18,6 @@ const featured = computed(() =>
     )
     .slice(0, 8)
 )
-
-function toggleFavorite(id) {
-  const index = favoriteIds.value.indexOf(id)
-  if (index === -1) {
-    favoriteIds.value.push(id)
-  } else {
-    favoriteIds.value.splice(index, 1)
-  }
-}
 
 onMounted(load)
 </script>
@@ -68,8 +60,8 @@ onMounted(load)
       <BookList
         v-else
         :books="featured"
-        :favorites="favoriteIds"
-        @toggle-favorite="toggleFavorite"
+        :favorites="favorites.ids"
+        @toggle-favorite="favorites.toggle"
       />
     </section>
   </div>

@@ -24,6 +24,12 @@ const router = createRouter({
       meta: { title: 'Détail du livre — Biblio+' }
     },
     {
+      path: '/favoris',
+      name: 'favorites',
+      component: () => import('@/views/FavoritesView.vue'),
+      meta: { title: 'Mes Favoris — Biblio+' }
+    },
+    {
       path: '/contact',
       name: 'contact',
       component: () => import('@/views/ContactView.vue'),
