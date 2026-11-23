@@ -1,6 +1,8 @@
+<script setup>
 import { ref, computed, watch, onMounted } from 'vue'
 import { useBooks } from '@/composables/useBooks'
 import { useFavoritesStore } from '@/stores/favorites'
+import { useDebounce } from '@/composables/useDebounce'
 import BookList from '@/components/BookList.vue'
 import BaseButton from '@/components/BaseButton.vue'
 
@@ -8,7 +10,8 @@ const { books, loading, error, load } = useBooks()
 const favorites = useFavoritesStore()
 onMounted(load)
 
-const query = ref('')
+const rawQuery = ref('')
+const query = useDebounce(rawQuery, 300)
 const category = ref('')
 const sort = ref('title')
 const page = ref(1)
@@ -53,7 +56,7 @@ watch([query, category, sort], () => {
         <label for="catalog-search" class="sr-only">Rechercher par titre ou auteur</label>
         <input
           id="catalog-search"
-          v-model="query"
+          v-model="rawQuery"
           type="search"
           placeholder="Rechercher par titre, auteur…"
           class="control-input"
@@ -100,7 +103,7 @@ watch([query, category, sort], () => {
       <button
         type="button"
         class="reset-btn"
-        @click="query = ''; category = ''"
+        @click="rawQuery = ''; category = ''"
       >
         Réinitialiser les critères
       </button>

@@ -1,5 +1,6 @@
 <script setup>
 import { useFavoritesStore } from '@/stores/favorites'
+import NavDropdown from '@/components/NavDropdown.vue'
 
 const favorites = useFavoritesStore()
 </script>
@@ -10,7 +11,7 @@ const favorites = useFavoritesStore()
     <nav aria-label="Navigation principale">
       <ul class="app-header__nav">
         <li><RouterLink to="/">Accueil</RouterLink></li>
-        <li><RouterLink to="/catalogue">Catalogue</RouterLink></li>
+        <NavDropdown />
         <li>
           <RouterLink to="/favoris" class="app-header__fav-link">
             Favoris

@@ -4,6 +4,7 @@ import { useBooks } from '@/composables/useBooks'
 import { useFavoritesStore } from '@/stores/favorites'
 import SearchBar from '@/components/SearchBar.vue'
 import BookList from '@/components/BookList.vue'
+import BookCarousel from '@/components/BookCarousel.vue'
 import BaseButton from '@/components/BaseButton.vue'
 
 const { books, loading, error, load } = useBooks()
@@ -37,6 +38,10 @@ onMounted(load)
     </section>
 
     <section aria-labelledby="coeur" class="section-featured">
+      <div v-if="!loading && !error && books.length" class="home-carousel-block">
+        <BookCarousel :items="books.slice(0, 5)" />
+      </div>
+
       <div class="section-featured__header">
         <h2 id="coeur">Coups de cœur</h2>
         <span v-if="!loading && !error" class="section-featured__count">
