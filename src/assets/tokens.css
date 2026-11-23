@@ -16,3 +16,15 @@
   --space-6: 1.5rem;
   --radius: 0.75rem;
 }
+
+/* Thème sombre automatique basé sur les préférences de l'utilisateur */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: #2dd4bf;
+    --color-primary-contrast: #0f172a;
+    --color-surface: #1e293b;
+    --color-bg: #0f172a;
+    --color-text: #f1f5f9;
+    --color-danger: #f87171;
+  }
+}
