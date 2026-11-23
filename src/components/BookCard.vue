@@ -8,16 +8,27 @@ const emit = defineEmits(['toggle-favorite'])
 
 <template>
   <article class="book-card">
-    <img
-      class="book-card__cover"
-      :src="book.cover"
-      width="200"
-      height="300"
-      :alt="'Couverture de ' + book.title"
-      loading="lazy"
-    />
+    <RouterLink
+      :to="{ name: 'book', params: { id: book.id } }"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <img
+        class="book-card__cover"
+        :src="book.cover"
+        width="200"
+        height="300"
+        :alt="'Couverture de ' + book.title"
+        loading="lazy"
+      />
+    </RouterLink>
+
     <div class="book-card__body">
-      <h3 class="book-card__title">{{ book.title }}</h3>
+      <h3 class="book-card__title">
+        <RouterLink :to="{ name: 'book', params: { id: book.id } }">
+          {{ book.title }}
+        </RouterLink>
+      </h3>
       <p class="book-card__author">{{ book.author }}</p>
       <p
         class="book-card__status"
@@ -58,6 +69,7 @@ const emit = defineEmits(['toggle-favorite'])
   height: 240px;
   object-fit: cover;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  display: block;
 }
 .book-card__body {
   padding: var(--space-4);
@@ -69,9 +81,18 @@ const emit = defineEmits(['toggle-favorite'])
 .book-card__title {
   font-size: var(--fs-300);
   margin: 0;
-  color: var(--color-text);
   font-weight: 700;
   line-height: 1.3;
+}
+.book-card__title a {
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.book-card__title a:hover,
+.book-card__title a:focus-visible {
+  color: var(--color-primary);
+  text-decoration: underline;
 }
 .book-card__author {
   margin: 0;

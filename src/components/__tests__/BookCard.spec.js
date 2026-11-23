@@ -11,8 +11,19 @@ describe('BookCard', () => {
     available: true,
   }
 
+  const mountOptions = {
+    global: {
+      stubs: {
+        RouterLink: {
+          template: '<a><slot /></a>',
+        },
+      },
+    },
+  }
+
   it('affiche le titre et l\'auteur du livre', () => {
     const wrapper = mount(BookCard, {
+      ...mountOptions,
       props: { book: fakeBook, favorite: false },
     })
 
@@ -23,6 +34,7 @@ describe('BookCard', () => {
 
   it('émet un événement toggle-favorite au clic sur le bouton favori', async () => {
     const wrapper = mount(BookCard, {
+      ...mountOptions,
       props: { book: fakeBook, favorite: false },
     })
 
@@ -36,6 +48,7 @@ describe('BookCard', () => {
   it('affiche la classe et le libellé emprunté si non disponible', () => {
     const borrowedBook = { ...fakeBook, available: false }
     const wrapper = mount(BookCard, {
+      ...mountOptions,
       props: { book: borrowedBook, favorite: true },
     })
 
