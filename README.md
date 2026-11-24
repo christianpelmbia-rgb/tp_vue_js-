@@ -50,6 +50,22 @@ Dépôt GitHub : **[https://github.com/christianpelmbia-rgb/tp_vue_js-](https://
   - Liaison ARIA complète (`aria-describedby` reliant l'erreur au champ, `:aria-invalid` reflétant l'état, `role="status"` et `role="alert"`).
 - **Suite de tests unitaires Vitest :** 7 tests exécutés et validés avec succès sur les composants clés.
 
+### Séance 4 : État global, interactions et animations
+- **Stores Pinia & Persistance localStorage :**
+  - [favorites.js](file:///C:/Users/NHN/.gemini/antigravity/scratch/biblio-plus/src/stores/favorites.js) : Partage des favoris dans toute l'application avec persistance automatique sous la clé `biblio:favorites`.
+  - [reservations.js](file:///C:/Users/NHN/.gemini/antigravity/scratch/biblio-plus/src/stores/reservations.js) : Enregistrement et persistance des réservations d'ouvrages avec date et statut sous `biblio:reservations`.
+  - Badge dynamique en temps réel dans l'en-tête [AppHeader.vue](file:///C:/Users/NHN/.gemini/antigravity/scratch/biblio-plus/src/components/AppHeader.vue) indiquant le nombre de favoris (`favorites.count`).
+  - Page dédiée [FavoritesView.vue](file:///C:/Users/NHN/.gemini/antigravity/scratch/biblio-plus/src/views/FavoritesView.vue) listant les favoris ou affichant un état vide invitant à explorer le catalogue.
+- **Interactions et Accessibilité Clavier :**
+  - [BookCarousel.vue](file:///C:/Users/NHN/.gemini/antigravity/scratch/biblio-plus/src/components/BookCarousel.vue) : Carrousel accessible au clavier (flèches gauche/droite, boutons explicites, `aria-roledescription="carrousel"` et annonce vocale `aria-live="polite"`).
+  - [NavDropdown.vue](file:///C:/Users/NHN/.gemini/antigravity/scratch/biblio-plus/src/components/NavDropdown.vue) : Menu déroulant « Services » accessible au clic, survol et fermeture touche Échap avec attributs `aria-haspopup` et `aria-expanded`.
+  - [useDebounce.js](file:///C:/Users/NHN/.gemini/antigravity/scratch/biblio-plus/src/composables/useDebounce.js) : Composable de temporisation à 300 ms pour optimiser la recherche dans le catalogue sans recalculer à chaque frappe, avec nettoyage automatique `onScopeDispose`.
+- **Modale accessible et Animations :**
+  - [BaseModal.vue](file:///C:/Users/NHN/.gemini/antigravity/scratch/biblio-plus/src/components/BaseModal.vue) : Fenêtre modale rendue hors de la hiérarchie grâce à `<Teleport to="body">`, animée avec `<Transition name="fade">`, piège/focus automatique sur la boîte de dialogue (`role="dialog"`, `aria-modal="true"`) et triple fermeture (bouton, clic sur fond et touche Échap).
+  - Formulaire de réservation dans [BookView.vue](file:///C:/Users/NHN/.gemini/antigravity/scratch/biblio-plus/src/views/BookView.vue) avec validation complète et confirmation immédiate.
+  - Prise en charge des utilisateurs sensibles aux animations via `@media (prefers-reduced-motion: reduce)` dans [base.css](file:///C:/Users/NHN/.gemini/antigravity/scratch/biblio-plus/src/assets/base.css).
+- **Suite de tests Vitest :** 9 tests unitaires validés avec succès sur composants et stores.
+
 ---
 
 ## Commandes du projet
